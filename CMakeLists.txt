@@ -76,6 +76,10 @@ if( BGFX_INSTALL )
 	install( TARGETS bgfx DESTINATION lib )
 	install( DIRECTORY ${BGFX_DIR}/include DESTINATION . )
 
+	# install necessary 3rd party libs
+	install( TARGETS astc DESTINATION lib )
+	install( TARGETS astc-codec DESTINATION lib )
+
 	# install tools
 	if( BGFX_BUILD_TOOLS )
         install( TARGETS shaderc DESTINATION bin )

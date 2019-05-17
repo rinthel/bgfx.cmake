@@ -77,7 +77,7 @@ elseif( APPLE )
 	target_link_libraries( bgfx PUBLIC ${COCOA_LIBRARY} ${METAL_LIBRARY} ${QUARTZCORE_LIBRARY} )
 endif()
 
-if( UNIX AND NOT APPLE AND NOT EMSCRIPTEN )
+if( UNIX AND NOT APPLE AND NOT EMSCRIPTEN AND NOT ANDROID )
 	find_package(X11 REQUIRED)
 	find_package(OpenGL REQUIRED)
 	#The following commented libraries are linked by bx
@@ -85,6 +85,10 @@ if( UNIX AND NOT APPLE AND NOT EMSCRIPTEN )
 	#find_library(LIBRT_LIBRARIES rt)
 	#find_library(LIBDL_LIBRARIES dl)
 	target_link_libraries( bgfx PUBLIC ${X11_LIBRARIES} ${OPENGL_LIBRARIES})
+endif()
+
+if( ANDROID )
+	target_include_directories( bgfx PUBLIC ${CMAKE_ANDROID_NDK}/sources/android/native_app_glue )
 endif()
 
 # Exclude mm files if not on OS X
