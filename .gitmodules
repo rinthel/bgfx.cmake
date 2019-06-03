@@ -7,3 +7,6 @@
 [submodule "bimg"]
 	path = bimg
 	url = https://github.com/bkaradzic/bimg.git
+[submodule "brtshaderc"]
+	path = brtshaderc
+	url = https://github.com/rinthel/brtshaderc.git

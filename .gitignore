@@ -12,3 +12,6 @@ install/
 install_manifest.txt
 generated/
 cmake_install.cmake
+cmake-build*
+.idea/
+.vscode/ipch

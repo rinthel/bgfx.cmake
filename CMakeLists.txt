@@ -47,6 +47,11 @@ if( NOT BGFX_DIR )
 elseif( NOT IS_ABSOLUTE "${BGFX_DIR}")
 	get_filename_component(BGFX_DIR "${BGFX_DIR}" REALPATH BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 endif()
+if( NOT BRTSHADERC_DIR )
+	set( BRTSHADERC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/brtshaderc" CACHE STRING "Location of brtshaderc." )
+elseif( NOT IS_ABSOLUTE "${BRTSHADERC_DIR}")
+	get_filename_component(BRTSHADERC_DIR "${BRTSHADERC_DIR}" REALPATH BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+endif()
 
 if( BGFX_USE_OVR )
 	include( cmake/ovr.cmake )
@@ -56,6 +61,7 @@ include( cmake/shared.cmake )
 include( cmake/bx.cmake )
 include( cmake/bimg.cmake )
 include( cmake/bgfx.cmake )
+include( cmake/brtshaderc.cmake)
 
 if( BGFX_BUILD_TOOLS )
 	include( cmake/tools.cmake )
@@ -76,9 +82,17 @@ if( BGFX_INSTALL )
 	install( TARGETS bgfx DESTINATION lib )
 	install( DIRECTORY ${BGFX_DIR}/include DESTINATION . )
 
+	# install brtshaderc
+	install( TARGETS brtshaderc DESTINATION lib )
+	install( FILES ${BRTSHADERC_DIR}/tools/brtshaderc/brtshaderc.h DESTINATION include )
+
 	# install necessary 3rd party libs
 	install( TARGETS astc DESTINATION lib )
 	install( TARGETS astc-codec DESTINATION lib )
+	install( TARGETS fcpp DESTINATION lib )
+	install( TARGETS glsl-optimizer DESTINATION lib )
+	install( TARGETS spirv-cross DESTINATION lib )
+	install( TARGETS spirv-tools DESTINATION lib )
 
 	# install tools
 	if( BGFX_BUILD_TOOLS )
