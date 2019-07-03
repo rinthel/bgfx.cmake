@@ -89,18 +89,19 @@ if( BGFX_INSTALL )
 	# install necessary 3rd party libs
 	install( TARGETS astc DESTINATION lib )
 	install( TARGETS astc-codec DESTINATION lib )
-	install( TARGETS fcpp DESTINATION lib )
-	install( TARGETS glcpp DESTINATION lib )
-	install( TARGETS mesa DESTINATION lib )
-	install( TARGETS glslang DESTINATION lib )
-	install( TARGETS glsl-optimizer DESTINATION lib )
-	install( TARGETS spirv-cross DESTINATION lib )
-	install( TARGETS spirv-tools DESTINATION lib )
 
 	# install tools
 	if( BGFX_BUILD_TOOLS )
         install( TARGETS shaderc DESTINATION bin )
 		install( TARGETS geometryc DESTINATION bin )
+
+		install( TARGETS fcpp DESTINATION lib )
+		install( TARGETS glcpp DESTINATION lib )
+		install( TARGETS mesa DESTINATION lib )
+		install( TARGETS glslang DESTINATION lib )
+		install( TARGETS glsl-optimizer DESTINATION lib )
+		install( TARGETS spirv-cross DESTINATION lib )
+		install( TARGETS spirv-tools DESTINATION lib )
 	endif()
 
 	# install examples
