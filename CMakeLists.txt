@@ -61,10 +61,10 @@ include( cmake/shared.cmake )
 include( cmake/bx.cmake )
 include( cmake/bimg.cmake )
 include( cmake/bgfx.cmake )
-include( cmake/brtshaderc.cmake)
 
 if( BGFX_BUILD_TOOLS )
 	include( cmake/tools.cmake )
+	include( cmake/brtshaderc.cmake)
 endif()
 
 include( cmake/examples.cmake )
@@ -82,10 +82,6 @@ if( BGFX_INSTALL )
 	install( TARGETS bgfx DESTINATION lib )
 	install( DIRECTORY ${BGFX_DIR}/include DESTINATION . )
 
-	# install brtshaderc
-	install( TARGETS brtshaderc DESTINATION lib )
-	install( FILES ${BRTSHADERC_DIR}/tools/brtshaderc/brtshaderc.h DESTINATION include )
-
 	# install necessary 3rd party libs
 	install( TARGETS astc DESTINATION lib )
 	install( TARGETS astc-codec DESTINATION lib )
@@ -94,6 +90,10 @@ if( BGFX_INSTALL )
 	if( BGFX_BUILD_TOOLS )
         install( TARGETS shaderc DESTINATION bin )
 		install( TARGETS geometryc DESTINATION bin )
+
+		# install brtshaderc
+		install( TARGETS brtshaderc DESTINATION lib )
+		install( FILES ${BRTSHADERC_DIR}/tools/brtshaderc/brtshaderc.h DESTINATION include )
 
 		install( TARGETS fcpp DESTINATION lib )
 		install( TARGETS glcpp DESTINATION lib )
