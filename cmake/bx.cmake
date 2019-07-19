@@ -56,6 +56,9 @@ target_compile_definitions( bx PRIVATE "$<$<CONFIG:Debug>:BX_CONFIG_DEBUG=1>" )
 if(BGFX_CONFIG_DEBUG)
 	target_compile_definitions( bx PRIVATE BX_CONFIG_DEBUG=1)
 endif()
+if (ANDROID)
+	target_compile_definitions( bx PRIVATE BX_ANDROID_LOG_TAG="bgfx")
+endif()
 
 # Additional dependencies on Unix
 if( UNIX AND NOT APPLE )
