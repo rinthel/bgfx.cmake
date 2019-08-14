@@ -83,14 +83,14 @@ function( add_bgfx_shader FILE FOLDER )
 		set( OUTPUTS_PRETTY "${OUTPUTS_PRETTY}GLSL, " )
 
 		# spirv
-		if( NOT "${TYPE}" STREQUAL "COMPUTE" )
+#		if( NOT "${TYPE}" STREQUAL "COMPUTE" )
 			set( SPIRV_OUTPUT ${BGFX_DIR}/examples/runtime/shaders/spirv/${FILENAME}.bin )
 			shaderc_parse( SPIRV ${COMMON} LINUX PROFILE spirv OUTPUT ${SPIRV_OUTPUT} )
 			list( APPEND OUTPUTS "SPIRV" )
 			set( OUTPUTS_PRETTY "${OUTPUTS_PRETTY}SPIRV" )
-			set( OUTPUT_FILES "" )
-			set( COMMANDS "" )
-		endif()
+#			set( OUTPUT_FILES "" )
+#			set( COMMANDS "" )
+#		endif()
 
 		foreach( OUT ${OUTPUTS} )
 			list( APPEND OUTPUT_FILES ${${OUT}_OUTPUT} )
