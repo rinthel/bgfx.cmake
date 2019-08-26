@@ -20,7 +20,7 @@ file(
 )
 
 add_library( spirv-cross STATIC ${SPIRV_CROSS_SOURCES} )
-target_compile_definitions( spirv-cross PRIVATE SPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS )
+target_compile_definitions( spirv-cross PRIVATE SPIRV_CROSS_EXCEPTIONS_TO_ASSERTIONS SPIRV_CROSS_C_API_GLSL=1 )
 target_include_directories( spirv-cross PUBLIC
 	${BGFX_DIR}/3rdparty/spirv-cross
 	${BGFX_DIR}/3rdparty/spirv-cross/include
