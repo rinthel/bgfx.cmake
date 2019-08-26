@@ -7,6 +7,7 @@ endif()
 add_library( brtshaderc
     ${BRTSHADERC_DIR}/tools/brtshaderc/brtshaderc.cpp
     ${BRTSHADERC_DIR}/tools/brtshaderc/brtshaderc.h
+    ${BRTSHADERC_DIR}/tools/brtshaderc/shaderc_metal.cpp
     )
 target_compile_definitions( brtshaderc PRIVATE "-D_CRT_SECURE_NO_WARNINGS" )
 set_target_properties( brtshaderc PROPERTIES FOLDER "bgfx/tools" )
