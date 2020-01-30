@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 if( APPLE AND NOT IOS )
-	set( CMAKE_CXX_FLAGS "-ObjC++" )
+	set( CMAKE_CXX_FLAGS "-x objective-c++" )
 endif()
 
 option( BGFX_BUILD_TOOLS      "Build bgfx tools."                             ON  )
