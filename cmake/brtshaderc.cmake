@@ -11,4 +11,9 @@ add_library( brtshaderc
     )
 target_compile_definitions( brtshaderc PRIVATE "-D_CRT_SECURE_NO_WARNINGS" )
 set_target_properties( brtshaderc PROPERTIES FOLDER "bgfx/tools" )
-target_link_libraries( brtshaderc bx bimg bgfx-vertexdecl bgfx-shader-spirv fcpp glsl-optimizer glslang spirv-cross spirv-tools )
+target_link_libraries( brtshaderc bx bimg bgfx-vertexlayout bgfx-shader-spirv fcpp glsl-optimizer glslang spirv-cross spirv-tools )
+target_include_directories( brtshaderc PRIVATE
+    ${BGFX_DIR}/3rdparty/webgpu/include
+    ${BGFX_DIR}/3rdparty/spirv-cross
+    ${BGFX_DIR}/3rdparty/spirv-cross/include
+    )

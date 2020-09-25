@@ -20,5 +20,9 @@ file(
 )
 
 add_library( astc-codec STATIC ${ASTC_CODEC_SOURCES} )
-target_include_directories( astc-codec PUBLIC ${BIMG_DIR}/3rdparty ${BIMG_DIR}/3rdparty/astc-codec ${BIMG_DIR}/3rdparty/astc-codec/include )
+target_include_directories( astc-codec
+	PUBLIC
+		$<BUILD_INTERFACE:${BIMG_DIR}/3rdparty>
+		$<BUILD_INTERFACE:${BIMG_DIR}/3rdparty/astc-codec>
+		$<BUILD_INTERFACE:${BIMG_DIR}/3rdparty/astc-codec/include> )
 set_target_properties( astc-codec PROPERTIES FOLDER "bgfx/3rdparty" )
